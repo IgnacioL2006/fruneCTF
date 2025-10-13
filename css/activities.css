@@ -1,0 +1,84 @@
+/* ############# FUENTE ##########*/
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ############# BODY ##########*/
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: rgb(33,44,66);
+    color: #ffffff;
+}
+
+/* ############# BOTONES ##########*/
+.lista-actividades {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    max-width: 600px;
+}
+.lista-actividades li {
+    margin-bottom: 15px;
+}
+.actividad-boton {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    background-color:  rgb(21,28,43);
+    border: 5px solid  rgb(55, 72, 106);    
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.actividad-boton:hover {
+    background-color: rgb(61, 78, 113);
+    border: 8px solid  rgb(118, 146, 201); 
+    transform: translateY(-2px);
+    padding-bottom: 60px;
+}
+.actividad-boton h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.actividad-boton p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ffffff;
+}
+.dificultad {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    font-size: 14px;
+    color: #ff0000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.actividad-boton:hover .dificultad {
+    opacity: 1;
+}
+
+.dificultad.facil {color: rgb(105, 255, 105);}
+.dificultad.media {color: rgb(255, 199, 96);}
+.dificultad.dificil {color: red;}
+
+/* ############# TABLA ##########*/
+.tabla {
+    text-align: center;  
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tabla table {
+    margin: 0 auto;      
+    border-collapse: collapse; 
+}
+.tabla th,.tabla td {
+    text-align: center;   
+    padding: 8px 16px;
+}

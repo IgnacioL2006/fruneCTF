@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    align-items: left;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+     margin: 20px 0 50px 30%;
+}
+
+
+.tab-buttons {
+    display: flex;
+}
+
+.tab-buttons button {
+    flex: 1;
+    padding: 10px 0;
+    cursor: pointer;
+    background:  rgb(21,28,43);
+    color: white;
+    border: none;
+    transition: background 1.5s;
+}
+
+.tab-buttons button.active {
+    background: rgb(79, 110, 172);
+    color: #fff;
+}
+
+.forms-slider {
+    display: flex;
+    width: 200%; 
+    transition: transform 0.5s cubic-bezier(1, 0, 0, 1)
+}
+
+.form-panel {
+    width: 50%; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+input[type=text], input[type=password], select, input[type=file] {
+    width: 100%;
+    padding: 6px;
+    margin: 5px 0 15px 0;
+    box-sizing: border-box;
+}
+
+input[type=submit], input[type=reset] {
+    padding: 8px 12px;
+    margin-right: 10px;
+}
+
+.warn-text {
+    color: red;
+}
+

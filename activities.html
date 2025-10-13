@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!------------------------------------------------
+                CONTENIDO HTML
+-------------------------------------------------->
+<html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="keywords" content="CTF, puzzles, acertijos, hacking ético, seguridad informática, retos de lógica">
+            <meta name="description" content="FRUNE CTF - Plataforma de acertijos, retos de lógica y hacking ético.">
+            <meta name="author" content="FruneCTF Team">
+            <title>FRUNE CTF</title>
+            <link rel="stylesheet" href="css/activities.css">
+        </head>
+    <body>
+        <!-- Ejecutar Header -->
+        <div id="header"></div>
+        <script src="javascript/page_structure.js"></script>
+
+        <main>
+            <!--Lista de actividades donde el usuario accede a los desafios-->  
+            <section id="Inicio">
+                <h1 style="text-align:center;">ACTIVIDADES</h1>
+                <ul class="lista-actividades" id="lista-actividades"></ul>
+            </section>
+            
+            <!--Tabla explicativa de como funciona la puntuación-->
+            <div class="tabla">
+                <h3>PUNTUACIONES</h3>
+                <p>Aquí puedes ver la cantidad de banderas que te entrega cada tipo de dificultad</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Grado</th><th>Dificultad de la actividad</th><th>Banderas</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td><td>Casual</td><td>1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>Principiante</td><td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>Aprendiz</td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>Novato</td><td>6</td>
+                    </tr>
+                    <tr>
+                        <td>5</td><td>Intermedio</td><td>8</td>
+                    </tr>
+                    <tr>
+                        <td>6</td><td>Avanzado</td><td>10</td>
+                    </tr>
+                    <tr>
+                        <td>7</td><td>Experto</td><td>12</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    <!-- Ejecutar Footer -->
+    <div id="footer"></div>
+    <script src="javascript/page_structure.js"></script>
+
+    <!-- JavaScript-->
+    <script src="javascript/activities.js" defer></script>
+
+    </body>
+</html>

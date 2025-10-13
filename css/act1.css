@@ -1,0 +1,23 @@
+/* ############# FUENTE ##########*/
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ############# BODY ##########*/
+body {
+    font-family: 'Rubik', sans-serif;
+    max-height: 200px;
+    background-color: rgb(33,44,66);
+    color: rgb(233, 252, 255);
+    text-align: center;
+}
+.lista {
+      list-style: none;         /* quita los puntos */
+  padding: 0;
+  margin: 0 auto;           /* margen automático centra en horizontal */
+  width: fit-content;       /* ajusta el ancho al contenido */
+  text-align: center;
+}

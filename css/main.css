@@ -1,0 +1,118 @@
+/* ############# FUENTE PERSONALIZADA ##########*/
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ############# GLOBAL ##########*/
+* {margin: 0; padding: 0;}
+
+/* Utilización de clase (.class) */
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(33,44,66);
+    box-sizing: border-box;
+}
+
+/* ############# PORTADA ##########*/
+
+/* Utilización de identificador (#id) */
+#portada {
+    background-image: url("../images/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#portada_texto {
+    font-size: 2rem;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#portada h1 {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
+
+#portada h3 {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    margin-top: 10px;  
+    margin-bottom: 10px;   
+}
+
+/* ############# BOTÓN ##########*/
+.boton {
+    padding: 10px 20px;
+    background-color: rgb(21,28,43);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 5px solid rgb(55, 72, 106);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-top: 10px;  
+}
+
+/* HOVER: el botón despierta y responde cuando lo tocas con el cursor */
+.boton:hover {
+    background-color: rgb(40, 52, 79);
+    color: rgb(255, 255, 255);
+    border: 6px solid rgb(92, 115, 163); 
+    transform: scale(1.05);
+}
+
+.boton span {display: inline-block; transition: transform 0.3s ease-in-out;}
+.boton:hover span {transform: scale(1.1);}
+
+/* ############# INTRODUCCIÓN ########## */
+
+/* Se utiliza Flexbox en varios elementos de los documentos CSS*/
+#introduccion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    text-align: center;          
+    background-color: #f4f7ff;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+#introduccion h2, #introduccion h3, #introduccion p {
+    max-width: 600px;
+    width: 100%;
+    line-height: 1.5;
+}
+
+#introduccion img {
+    width: 700px;
+    height: auto;
+}
+
+/* FOCUS: se resalta con un halo azul cuando está seleccionado */
+.boton:focus {outline: 5px solid rgb(0, 208, 255);}
+
+.boton:active {transform: scale(0.95);}
+
+.resaltado {
+    color: rgb(0, 200, 255);
+    font-weight: 900; /* más grueso que bold */
+}

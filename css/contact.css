@@ -1,0 +1,22 @@
+/* ##### BODY ##### */
+body {
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ##### FORMULARIO ##### */
+#contacto {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;       
+  flex-direction: column;  
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;       
+  max-width: 90%;    
+}

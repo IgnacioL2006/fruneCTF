@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:  #fafafa;
+    box-sizing: border-box;
+}
+
+#forum {
+    text-align: center;
+    padding: 40px;
+}
+
+.user-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Mantiene el botón a la derecha */
+    gap: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 60%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    flex: 1; 
+}
+
+.user-desc {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+    text-align: left; 
+}
+
+.user-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.user-name {
+    flex: 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+button {
+    background: rgb(79, 110, 172);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: rgb(119, 180, 245);
+}

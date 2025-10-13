@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ############# BODY ##########*/
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color:  #f4f7ff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+#perfil-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+#user-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#user-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#user-info p {
+    margin: 4px 0;
+}
+
+#user-statistics {
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+#comment-bar {
+    width: 100%;
+    height: 30px;
+}
+#forum {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* centra horizontalmente */
+    align-items: center; /* centra el contenido interno horizontalmente */
+}
+
+#user-options {
+    margin-top: 20px;
+}
+
+#user-options a, #user-options button {
+    display: inline-block;
+    background-color: rgb(79, 110, 172);
+    color: white;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#user-options a:hover, #user-options button:hover {
+    background-color: rgb(99, 131, 196);
+}
+#desc-form, #img-form {
+    margin-top: 10px;
+}
+#desc-form textarea {
+    width: 100%;
+    height: 60px;
+    resize: none;
+}
