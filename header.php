@@ -3,6 +3,8 @@ session_start();
 include 'conex.php';
 include 'session_helper.php';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -23,7 +25,6 @@ include 'session_helper.php';
     <body>
 
         <header>
-
 
             <div class="logo">
                 <img src="images/logo.png" alt="FRUNE CTF" class="logo-img">
@@ -57,7 +58,7 @@ include 'session_helper.php';
                         </a>
                     </li>
                     <li>
-                        <a class="navegador" href="news.html">
+                        <a class="navegador" href="news.php">
                             <img src="images/ico4.png" alt="Noticias"> Noticias
                         </a>
                     </li>

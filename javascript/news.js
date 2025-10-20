@@ -1,3 +1,4 @@
+console.log("Esta wea funciona")
 document.getElementById("update_button").addEventListener("click", () => {
     console.log("clicked")
 fetch("retrieve_news.php")
@@ -18,7 +19,7 @@ function Create_newsletter(data)
 
     data.forEach((row_data) => {
         const news_letter = document.createElement("div")
-        news_letter.class = "news_letter"
+        news_letter.className = "news_letter"
         
         const title = document.createElement("h1")
         title.textContent = row_data[1]
@@ -29,7 +30,7 @@ function Create_newsletter(data)
         news_letter.appendChild(sub_title)
         
         const body_container = document.createElement("div")
-        body_container.class = "news_letter_body"
+        body_container.className = "news_letter_body"
 
         const body = document.createElement("p")
         body.textContent = row_data[2]
