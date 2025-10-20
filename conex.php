@@ -2,7 +2,7 @@
 $host = "localhost";         // Servidor
 $user = "root";         
 $pass = "";              
-$db   = "frunectf_database"; // Nombre de la base de datos
+$db   = "frune_ctf_database"; // Nombre de la base de datos
 
 $conn = new mysqli($host, $user, $pass, $db);
 
