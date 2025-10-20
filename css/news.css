@@ -28,22 +28,96 @@ body {
     margin-bottom: 20px;
 }
 
-.news_letter{
+#news_creator {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;       
+    flex-direction: column; 
+}
+
+#news_creator form {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    flex-direction: column;
+    width: 600px;
+    max-width: 90%;
+    padding: 20px;               
+    border-radius: 12px;        
+    background-color: #ffffff; 
+    font-family: 'Rubik', sans-serif;  
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    gap: 15px;                  
+}
+
+#news_creator form label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#news_creator form input,
+#news_creator form textarea {
+    width: 100%;               
+    padding: 10px;             
+    border: 1px solid #ccc;    
+    border-radius: 8px;        
+    font-family: 'Rubik', sans-serif; 
+    font-size: 16px;           
+    box-sizing: border-box;    
+    outline: none;             
+    transition: all 0.2s ease;
+    margin: 0;
+}
+
+#news_creator form input[type="text"] {
+    display: block;
+    margin: 0;
+}
+
+#news_creator form input:focus,
+#news_creator form textarea:focus {
+    border-color: rgb(79, 110, 172); 
+    box-shadow: 0 0 5px rgba(79,110,172,0.3); 
+}
+
+#news_creator button {
+    width: 100%; 
+    max-width: 300px; 
+    margin: 10px 0; 
+    background-color: rgb(79, 110, 172);
+    color: #ffffff;                   
+    padding: 10px 20px;         
+    border: none;               
+    border-radius: 8px;         
+    cursor: pointer;            
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+}
+
+#news_creator button:hover {
+    background-color: rgb(119, 180, 245);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+}
+
+#news_creator button:active {
+    transform: translateY(0px);
+    box-shadow: 0 3px 4px rgba(0,0,0,0.2);
+}
+
+.news_letter {
     align-items: left;     
     text-align: left;  
-    justify-content: left; /* Mantiene el botón a la derecha */
+    justify-content: left; 
     gap: 20px;
     background: white;
     border-radius: 10px;
     padding: 15px;
     margin: 10px auto;
     width: 60%;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-}
-.news_letter_body{
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: rgb(247, 255, 255);
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
