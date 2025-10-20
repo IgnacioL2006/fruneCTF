@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 20, 2025 at 03:43 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Oct 20, 2025 at 03:15 PM
+-- Server version: 8.4.3
+-- PHP Version: 8.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `activities` (
-  `id` int(11) NOT NULL,
-  `difficulty` varchar(100) DEFAULT NULL,
-  `times_completed` int(11) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL
+  `id` int NOT NULL,
+  `difficulty` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `times_completed` int DEFAULT NULL,
+  `description` text COLLATE utf8mb4_general_ci,
+  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -50,9 +50,9 @@ INSERT INTO `activities` (`id`, `difficulty`, `times_completed`, `description`, 
 --
 
 CREATE TABLE `countries` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `iso_code` char(2) NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `iso_code` char(2) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,11 +90,11 @@ INSERT INTO `countries` (`id`, `name`, `iso_code`) VALUES
 --
 
 CREATE TABLE `news` (
-  `ID` int(11) NOT NULL,
-  `title` varchar(200) NOT NULL,
-  `body` varchar(1000) NOT NULL,
-  `author` varchar(200) NOT NULL,
-  `date` date DEFAULT curdate()
+  `ID` int NOT NULL,
+  `title` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `body` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL,
+  `author` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -102,9 +102,7 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`ID`, `title`, `body`, `author`, `date`) VALUES
-(1, 'testing', 'test this', 'testernigga', '2025-11-20'),
-(2, 'Me pica el orto', 'q alguien me la meta uwu', 'BabyNigga', '2025-12-20'),
-(3, 'testttc', 'caca', 'dada', '2025-10-20');
+(10, 'Actualización de fruneCTF: Entrega 2', 'Bienvenidos a la segunda entrega de fruneCTF, las nuevas implementaciones son:\r\n\r\n- Implementación de registro/inicio de sesión\r\n- Implementación de noticias\r\n- Implementación de apartado social; podrás ver todas las personas registradas en la página, se espera implementar un sistema de foro para la entrega 3\r\n- 2 nuevas actividades\r\n\r\nPensabamos en agregar más actividades, pero no nos dio tiempo. Aún así, esperamos que disfruten las actividades nuevas hechas a última hora.', 'Pernax', '2025-10-20 15:09:19');
 
 -- --------------------------------------------------------
 
@@ -113,17 +111,17 @@ INSERT INTO `news` (`ID`, `title`, `body`, `author`, `date`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `webname` varchar(50) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `mail` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `register_time` datetime DEFAULT current_timestamp(),
-  `country_id` int(11) DEFAULT NULL,
-  `description` varchar(255) DEFAULT 'Sin descripción',
-  `flags_won` int(11) DEFAULT 0,
-  `competitions_won` int(11) DEFAULT 0,
-  `photo_url` varchar(255) DEFAULT 'images/user-images/user_image_default.png'
+  `id` int NOT NULL,
+  `webname` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mail` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `register_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `country_id` int DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'Sin descripción',
+  `flags_won` int DEFAULT '0',
+  `competitions_won` int DEFAULT '0',
+  `photo_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'images/user-images/user_image_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -143,8 +141,8 @@ INSERT INTO `users` (`id`, `webname`, `name`, `mail`, `password`, `register_time
 --
 
 CREATE TABLE `user_activities` (
-  `user_id` int(11) NOT NULL,
-  `activity_id` int(11) NOT NULL
+  `user_id` int NOT NULL,
+  `activity_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -192,25 +190,25 @@ ALTER TABLE `user_activities`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
