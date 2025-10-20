@@ -57,7 +57,7 @@ include 'session_helper.php';
                         </a>
                     </li>
                     <li>
-                        <a class="navegador" href="#">
+                        <a class="navegador" href="news.html">
                             <img src="images/ico4.png" alt="Noticias"> Noticias
                         </a>
                     </li>
