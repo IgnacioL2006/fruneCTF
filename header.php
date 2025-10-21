@@ -33,7 +33,7 @@ include 'session_helper.php';
             <nav>
                 <ul>
                     <li>
-                        <a class="navegador" href="main.php">
+                        <a class="navegador" href="index.php">
                             <img src="images/ico3.png" alt="Inicio"> Principal
                         </a>
                     </li>

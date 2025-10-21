@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";         // Servidor
+$host = "mysql.inf.uct.cl";         // Servidor
 $user = "ltrillat";         
 $pass = "Stormblessed";              
 $db   = "A2025_ltrillat"; // Nombre de la base de datos

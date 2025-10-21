@@ -52,5 +52,5 @@
 
     $_SESSION['user_id']   = $id_db;
     $_SESSION['user_name'] = $user_name_db;
-    header("Location: main.php");
+    header("Location: index.php");
 ?>
