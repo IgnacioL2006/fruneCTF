@@ -1,0 +1,32 @@
+/* ############# FUENTE ##########*/
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ############# BODY ##########*/
+body { 
+    font-family: 'Rubik', sans-serif; 
+    max-height: 200px; 
+    background-color: rgb(33,44,66); 
+    color: rgb(233, 252, 255); 
+    text-align: center;
+}
+
+form{
+    margin: 20px;
+}
+
+p{
+    margin: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+.inputboxes {
+    color: blue;
+    width: 10px;
+}
