@@ -2,7 +2,8 @@
 const activities = [
     ["Top de nombres para perros", "Encuentra información oculta en un simple e inocente blog canino | 2 Mins", 1, "activities/activity1/1-1.html"], 
     ["Detective de imágenes", "Demuestra tus habilidades de OSINT en este desafío introductorio! | 3 Mins.", 2, "activities/activity2/2-1.html"],
-    ["Fiesta de figuras", "Ayuda a un circulo a superar un momento incómodo | 15 Mins.", 4, "activities/activity2/2-1.html"]
+    ["El codigo secreto", "Encuentra el codigo secreto aplicando ingeniería inversa | 6 Mins", 2, "activities/activity3/3-1.html"],
+    ["Fiesta de figuras", "Ayuda a un circulo a superar un momento incómodo | 15 Mins.", 4, "activities/activity4/4-1.html"]
 ];
 
 // Selecciona en el HTML el <ul> donde vamos a poner las actividades

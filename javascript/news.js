@@ -1,6 +1,7 @@
-console.log("Esta wea funciona")
+
+//When the update button is clicked, gather the information from the DataBase and create the news letters.
 document.getElementById("update_button").addEventListener("click", () => {
-    console.log("clicked")
+    console.log("Update Button Clicked")
 fetch("retrieve_news.php")
     .then((response) => response.json())
     .then((news_data) => {
@@ -11,6 +12,7 @@ fetch("retrieve_news.php")
 })
 
 
+//Creates the html elements for every row of the given data
 function Create_newsletter(data)
 {
     console.log("Function called")
@@ -40,7 +42,7 @@ function Create_newsletter(data)
 
         news_container.appendChild(news_letter)
 
-        console.log(news_letter)
+        console.log("News_letter added",news_letter)
     })
 
 }
