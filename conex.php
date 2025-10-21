@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";         // Servidor
-$user = "root";         
-$pass = "";              
-$db   = "frune_ctf_database"; // Nombre de la base de datos
+$user = "ltrillat";         
+$pass = "Stormblessed";              
+$db   = "A2025_ltrillat"; // Nombre de la base de datos
 
 $conn = new mysqli($host, $user, $pass, $db);
 

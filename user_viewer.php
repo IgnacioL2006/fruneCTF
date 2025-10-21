@@ -84,6 +84,7 @@
         <title>Perfil de <?= htmlspecialchars($user['name']) ?></title>
         <link rel="stylesheet" href="css/userviewer.css">
         <script src="javascript/page_structure.js"></script>
+        <script src="javascript/user_profile.js"></script>
     </head>
 
     <body>
@@ -146,18 +147,6 @@
 
         <!-- footer -->
         <div id="footer"></div>
-
-        <script>
-            // Funciones para mostrar/ocultar formularios
-            function toggleDescForm() {
-                const f = document.getElementById('desc-form');
-                f.style.display = (f.style.display === 'none' || f.style.display === '') ? 'block' : 'none';
-            }
-            function toggleImgForm() {
-                const f = document.getElementById('img-form');
-                f.style.display = (f.style.display === 'none' || f.style.display === '') ? 'block' : 'none';
-            }
-        </script>
 
     </body>
 </html>
