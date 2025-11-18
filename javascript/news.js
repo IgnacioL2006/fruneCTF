@@ -1,48 +1,44 @@
+window.addEventListener("DOMContentLoaded", () => {
 
-//When the update button is clicked, gather the information from the DataBase and create the news letters.
-document.getElementById("update_button").addEventListener("click", () => {
-    console.log("Update Button Clicked")
-fetch("retrieve_news.php")
-    .then((response) => response.json())
-    .then((news_data) => {
-        console.log("Raw Data", news_data);
-        Create_newsletter(news_data)
-    })
-    .catch((error) => console.log("Error", error));
-})
+    fetch("/retrieve_news.php") 
+        .then(response => response.json())
+        .then(news_data => {
+            console.log("Raw Data", news_data);
+            Create_newsletter(news_data);
+        })
+});
 
-
-//Creates the html elements for every row of the given data
-function Create_newsletter(data)
-{
-    console.log("Function called")
-    const news_container = document.getElementById("news_container")
+function Create_newsletter(data) {
+    const news_container = document.getElementById("news_container");
     news_container.innerHTML = "";
 
-    data.forEach((row_data) => {
-        const news_letter = document.createElement("div")
-        news_letter.className = "news_letter"
-        
-        const title = document.createElement("h1")
-        title.textContent = row_data[1]
-        news_letter.appendChild(title)
+    data.forEach((row) => {
+        const news_letter = document.createElement("div");
+        news_letter.className = "news_letter";
 
-        const sub_title = document.createElement("p")
-        sub_title.textContent = "Creado por " + row_data[3] + " el " + row_data[4]
-        news_letter.appendChild(sub_title)
-        
-        const body_container = document.createElement("div")
-        body_container.className = "news_letter_body"
+        // Título
+        const title = document.createElement("h1");
+        title.textContent = row.title;
+        news_letter.appendChild(title);
 
-        const body = document.createElement("p")
-        body.textContent = row_data[2]
-        body_container.appendChild(body)
+        // Usuario y fecha
+        const sub_title = document.createElement("p");
+        sub_title.innerHTML = `
+            <img src="${row.photo_url || 'images/user-images/user_image_default.png'}" 
+                class="comment-user-img">
+            <strong>${row.webname}</strong> el ${row.date}
+        `;
+        news_letter.appendChild(sub_title);
 
-        news_letter.appendChild(body_container)
+        // Cuerpo de la noticia
+        const body_container = document.createElement("div");
+        body_container.className = "news_letter_body";
 
-        news_container.appendChild(news_letter)
+        const body = document.createElement("p");
+        body.textContent = row.body;
+        body_container.appendChild(body);
 
-        console.log("News_letter added",news_letter)
-    })
-
+        news_letter.appendChild(body_container);
+        news_container.appendChild(news_letter);
+    });
 }

@@ -82,6 +82,7 @@
         <meta name="description" content="FRUNE CTF - Plataforma de acertijos, retos de lógica y hacking ético.">
         <meta name="author" content="FruneCTF Team">
         <title>Perfil de <?= htmlspecialchars($user['name']) ?></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/userviewer.css">
         <script src="javascript/page_structure.js"></script>
         <script src="javascript/user_profile.js"></script>
@@ -111,38 +112,81 @@
             <div id="user-statistics">
                 <p><strong>Banderas conseguidas:</strong> <?= htmlspecialchars($user['flags_won']) ?></p>
                 <p><strong>Competiciones ganadas:</strong> <?= htmlspecialchars($user['competitions_won']) ?></p>
+
+                <!-- Personalización de la cuenta -->
+                <?php if ($logged_id === $user_id): ?> <!-- Disponibles unicamente si el usuario es el mismo -->
+                    <div id="user-options">
+
+                        <!-- Botones -->
+                        <button type="button" class="btn btn-outline-light me-2" onclick="toggleDescForm()">Modificar descripción</button>
+                        <button type="button" class="btn btn-outline-light me-2" onclick="toggleImgForm()">Modificar imagen</button>
+                        <a href="logout.php" class="btn btn-outline-light">Cerrar sesión</a>
+
+
+                        <!-- Formularios ocultos -->
+
+                        <!-- Descripción -->
+                        <form id="desc-form" method="POST" style="display:none;">
+                            <textarea name="new_description" placeholder="Escribe tu nueva descripción..."><?= htmlspecialchars($user['description']) ?></textarea>
+                            <br>
+                            <button type="submit">Guardar</button>
+                        </form>
+                        <!-- Imagen -->
+                        <form id="img-form" method="POST" enctype="multipart/form-data" style="display:none;">
+                            <input type="file" name="new_photo" accept="image/*" required>
+                            <button type="submit">Subir nueva imagen</button>
+                        </form>
+                    </div>
+                <?php endif; ?>
             </div>
                 
-            <!-- Personalización de la cuenta -->
-            <?php if ($logged_id === $user_id): ?> <!-- Disponibles unicamente si el usuario es el mismo -->
-                <div id="user-options">
 
-                    <!-- Botones -->
-                    <button onclick="toggleDescForm()">Modificar descripción</button>
-                    <button onclick="toggleImgForm()">Modificar imagen</button>
-                    <a href="logout.php" class="btn-logout">Cerrar sesión</a>
-
-                    <!-- Formularios ocultos -->
-
-                    <!-- Descripción -->
-                    <form id="desc-form" method="POST" style="display:none;">
-                        <textarea name="new_description" placeholder="Escribe tu nueva descripción..."><?= htmlspecialchars($user['description']) ?></textarea>
-                        <br>
-                        <button type="submit">Guardar</button>
-                    </form>
-                    <!-- Imagen -->
-                    <form id="img-form" method="POST" enctype="multipart/form-data" style="display:none;">
-                        <input type="file" name="new_photo" accept="image/*" required>
-                        <button type="submit">Subir nueva imagen</button>
-                    </form>
-                </div>
-            <?php endif; ?>
         </section>
 
         <!-- Foro de usuario -->
         <section id="forum">
-            <h1>El foro de <?= htmlspecialchars($user['webname'])?> aún está en construcción</h1>
-            <h5>Los foros estarán habilitados en la entrega 3</h5>
+            <h1>Foro de <?= htmlspecialchars($user['webname'])?></h1>
+
+            <div id="comment-box">
+
+                <!-- If there is a login -->
+                <?php if ($logged_id): ?>
+
+                    <h5>¿Por qué no le comentas algo a <?= htmlspecialchars($user['webname'])?>?</h5>
+                    <form action="create_comment.php" method="POST">
+                        <input type="hidden" name="user_id" value="<?= $logged_id ?>">
+                        <input type="hidden" name="target_user_id" value="<?= $user_id ?>">
+                        
+                        <input type="text" name="comment" placeholder="Escribe un comentario...">
+                        <button type="submit" class="btn btn-outline-light">Enviar</button>
+                    </form>
+
+                <?php else: ?>
+
+                    <h5>Inicia sesión para comentar y ver el foro</h5>
+                    <a class="btn btn-outline-light" href="user_login.php">Registrarse</a>
+
+                <?php endif; ?>
+
+
+            </div>
+
+            <!-- Comments -->
+            <div id="comments-section">
+                <!-- Comments are loaded here using JavaScript. -->
+            </div>
+
+            <!-- Save ids -->
+            <script>
+                const pageUserId    = <?= $user_id ?>;
+                const sessionUserId = <?= $logged_id ?>;
+            </script>
+
+            <!-- Load JQuery and the comments. -->
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="javascript/comments.js"></script>
+
+
         </section>
 
         <!-- footer -->

@@ -1,83 +1,48 @@
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* ocupa toda la pantalla */
-    background-color: rgb(33,44,66);
-    padding: 5px 0;
-    box-sizing: border-box;
+.navbar {
+  background-color: rgb(149, 171, 214) !important; 
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; 
-    padding: 10px 0; 
+header.navbar {
+    background-color:  rgb(33,44,66) !important; 
+
 }
 
-.logo-img {max-height: 90px;}
-
-header nav {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* centra links */
-    align-items: center;
-    background-color: rgb(21,28,43); 
-    padding: 5px 20px;
-    color: #4fc3f7;
-    position: relative; /* para el botón login */
+.navbar-brand img {
+  max-height: 70px;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
 }
 
-header nav ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    transition: color 0.3s ease;
-    width: 80px;
-    min-height: 40px;
+.nav-link:hover {
+  color: rgb(157, 227, 255) !important;
 }
 
-header nav ul li a img {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 3px;
-    transition: transform 0.3s ease;
+.btn-outline-light,
+.btn-primary {
+color:#e2ecff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-header nav ul li a:hover {
-    color: rgb(157, 227, 255);
+.btn-outline-light:hover,
+.btn-primary:hover {
+color:#ffffff;
+  transform: scale(1.05);
 }
 
-header nav ul li a:hover img {
-    transform: rotate(10deg) scale(1.4);
+.container {
+  margin-top: 40px; 
 }
 
-.user_login {
-    position: absolute;
-    right: 20px;
-    background-color: rgb(33,44,66);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+h4 {
+  color: #4fc3f7;
 }
 
-.user_login:hover {
-    background-color: rgb(57,75,110);
-    transform: scale(1.05);
+.card {
+  background-color: rgb(33,44,66);
+  border: none;
+  border-radius: 10px;
 }

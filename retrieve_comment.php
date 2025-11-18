@@ -2,20 +2,22 @@
 include('conex.php');
 header('Content-Type: application/json');
 
+$user_id = intval($_GET['user_id']);
+
 $sql_query = "
     SELECT 
-        news.ID,
-        news.title,
-        news.body,
-        news.user_id,
-        news.date,
+        comments.id,
+        comments.user_id,
+        comments.content,
+        comments.created_at,
+        comments.updated_at,
         users.webname,
         users.photo_url
-    FROM news
-    INNER JOIN users ON news.user_id = users.id
-    ORDER BY news.date DESC
+    FROM comments
+    INNER JOIN users ON comments.user_id = users.id
+    WHERE comments.target_user_id = $user_id
+    ORDER BY comments.created_at DESC
 ";
-
 
 $result = mysqli_query($conn, $sql_query);
 

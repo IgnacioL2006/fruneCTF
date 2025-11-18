@@ -3,7 +3,18 @@
 #               CONTENIDO PHP
 #----------------------------------------------
     include 'conex.php';
-    session_start()
+    session_start();
+
+    // ID del usuario logueado
+    $logged_id = $_SESSION['user_id'] ?? null;
+
+    // Consultar SQL para los datos del usuario que se está viendo
+    $sql = "SELECT admin FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $logged_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user   = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -37,25 +48,25 @@
             </div>
 
             <!-- Form to add new news_letters -->
-            <div id="news_creator">
-                <form method="post" action="create_news_letter.php">
-                    
-                    <label for="title"> Title: </label>
-                    <input type="text" name="title" id="title">
+            <?php if ($user): ?>
+                <?php if ($user['admin'] == 1): ?>
+                    <div id="news_creator">
+                        <form method="post" action="create_news_letter.php">
 
-                    <label for="body"> Body: </label>
-                    <textarea name="body" id="body" rows="5" cols="40" placeholder="Write your news here..."></textarea>
+                            <input type="hidden" name="user_id" value="<?= $logged_id ?>">
 
-                    <label for="author"> Author: </label>
-                    <input type="text" name="author" id="author">
+                            <label for="title"> Title: </label>
+                            <input type="text" name="title" id="title">
 
-                    <button type="submit">Submit</button>
+                            <label for="body"> Body: </label>
+                            <textarea name="body" id="body" rows="5" cols="40" placeholder="Write your news here..."></textarea>
 
-                </form>
+                            <button type="submit">Submit</button>
 
-            <!-- Button with an event listener to retrieve all the news_letters -->
-                <button id="update_button">Update</button>
-            </div>
+                        </form>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
 
             <!-- Empty container for all the news_letters, added via JS -->
             <div id="news_container">
@@ -64,9 +75,6 @@
 
         <!-- Lgoic Script -->
         <script src="javascript/news.js"></script>
-
-
-
     </body>
 
     <!-- Footer -->

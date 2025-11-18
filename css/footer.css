@@ -6,6 +6,8 @@ footer {
     background-color: rgb(33,44,66);
     padding: 20px 0;
     color: white;
+    gap: 20px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3); 
 }
 
 /* ############# LOGO ##########*/
@@ -23,6 +25,7 @@ footer .logo img {
 footer .bottom_links {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap; 
 }
 
 footer .bottom_links a {

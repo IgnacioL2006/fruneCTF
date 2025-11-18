@@ -121,3 +121,17 @@ body {
     width: 1000px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
+
+
+.news_letter img.comment-user-img {
+    width: 40px;           
+    height: 40px;
+    border-radius: 50%;    
+    object-fit: cover;      
+    vertical-align: middle; 
+    margin-right: 10px;    
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+.news_letter_body p {
+    white-space: pre-wrap;
+}
