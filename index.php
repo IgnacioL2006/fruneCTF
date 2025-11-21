@@ -1,14 +1,8 @@
 <?php 
-#----------------------------------------------
-#               CONTENIDO PHP
-#----------------------------------------------
     session_start();          
     include 'session_helper.php'; 
 ?>
 <!DOCTYPE html>
-<!------------------------------------------------
-                CONTENIDO HTML
--------------------------------------------------->
 <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -18,34 +12,39 @@
         <meta name="author" content="FruneCTF Team">
         <title>FRUNE CTF</title>
 
-        <!-- Bootstrap -->
+        <!-- Bootstrap para el diseño responsivo y estilos rápidos -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <link rel="stylesheet" href="css/main.css">
-        <script src="javascript/page_structure.js"></script>
+        <script src="javascript/eventManager.js"></script>
     </head>
 
     <body>
-        <!-- Header -->
+
+        <!-- Header cargado desde JS -->
         <div id="header"></div>
 
         <main class="container-fluid p-0">  
-            <!-- Seccion de portada -->
+
+            <!-- Portada centrada usando utilidades de Bootstrap -->
             <section id="portada" class="d-flex flex-column text-center align-items-center justify-content-center p-4">
+                
                 <div id="portada_texto" class="container">
                     <h1>Demuestra quién manda en el arte del hacking</h1>
                     <h3>Resuelve retos, encuentra vulnerabilidades y captura las banderas ocultas para ganar.</h3>
                 </div>
 
+                <!-- Botón cambia según si el usuario está logueado -->
                 <?php if (is_logged_in()): ?>
                     <a class="boton mt-3" href="activities.html"><span>Jugar</span></a>
                 <?php else: ?>
                     <a class="boton mt-3" href="user_login.php"><span>Empezar gratis</span></a>
                 <?php endif; ?>
+
             </section>
 
-            <!-- Efecto Parallax -->
             <script>
+                // Pequeño efecto de desplazamiento en la portada
                 const portada = document.querySelector('#portada');
                 const offsetInicial = -750;
                 window.addEventListener('scroll', () => {
@@ -54,11 +53,13 @@
                 });
             </script>
 
-            <!-- Seccion principal -->
+            <!-- Contenedor principal de la info -->
             <div id="Inicio" class="container py-5">
 
-                <!-- Introducción -->
+                <!-- Introducción centrada -->
                 <article class="row justify-content-center">
+
+                    <!-- Caja principal con sombra y fondo claro -->
                     <div id="introduccion" class="col-12 col-md-10 col-lg-8 shadow rounded p-4 bg-light d-flex flex-column align-items-center gap-3">
                         
                         <h2>¿Qué es frune CTF?</h2>
@@ -88,59 +89,44 @@
                     </div>
                 </article>
 
-                <!-- Caracteristicas -->
-                <div class="row mt-5 g-600"> <!-- g-n espacio entre columnas -->
-                    
-                    <!-- Actividades -->
+                <!-- Sección con las 4 características -->
+                <div class="row mt-5 g-600">
+
+                    <!-- Cada tarjeta usa una columna responsiva -->
                     <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
                         <h3>Actividades</h3>
-                        <p>
-                            Explora una variedad de retos diseñados para entrenar tus habilidades. 
-                            Cada actividad tiene distintos niveles de dificultad y tipos de desafíos.
-                        </p>
+                        <p>Explora una variedad de retos diseñados para entrenar tus habilidades.</p>
                         <img src="images/1.png" class="img-fluid shadow rounded" alt="Ejemplo de actividad">
                     </div>
 
-                    <!-- Competición -->
                     <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
                         <h3>Competición</h3>
-                        <p>
-                            Participa en eventos en tiempo real y compite contra otros usuarios para ver quién completa 
-                            primero los retos. ¡Demuestra que eres el mejor hacker!
-                        </p>
+                        <p>Participa en eventos en tiempo real y compite contra otros usuarios.</p>
                         <img src="images/2.png" class="img-fluid shadow rounded" alt="Competición">
                     </div>
 
-                    <!-- Rankings -->
                     <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
                         <h3>Rankings y puntuaciones</h3>
-                        <p>
-                            Tu progreso se refleja en el ranking global. Cada bandera que capturas suma puntos y te 
-                            permite subir posiciones frente a otros participantes.
-                        </p>
+                        <p>Tu progreso se refleja en el ranking global con cada bandera que ganas.</p>
                         <img src="images/3.png" class="img-fluid shadow rounded" alt="Ranking">
                     </div>
 
-                    <!-- Noticias -->
                     <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
                         <h3>Noticias</h3>
-                        <p>
-                            Mantente al día con las últimas novedades, actualizaciones de retos y anuncios de próximos 
-                            eventos en el mundo de fruneCTF.
-                        </p>
+                        <p>Mantente al día con novedades, actualizaciones y próximos eventos.</p>
                         <img src="images/4.png" class="img-fluid shadow rounded" alt="Noticias">
                     </div>
 
-                </div> <!-- segunda fila -->
+                </div>
 
-            </div> <!-- container principal -->
+            </div>
 
         </main>
 
-        <!-- Footer -->
+        <!-- Footer cargado desde JS -->
         <div id="footer"></div>
 
-        <!-- Bootstrap JS -->
+        <!-- Script de Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
