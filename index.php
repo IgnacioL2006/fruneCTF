@@ -20,6 +20,7 @@
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
         <link rel="stylesheet" href="css/main.css">
         <script src="javascript/page_structure.js"></script>
@@ -27,8 +28,9 @@
 
     <body>
         <!-- Header -->
+         
         <div id="header"></div>
-
+        
         <main class="container-fluid p-0">  
             <!-- Seccion de portada -->
             <section id="portada" class="d-flex flex-column text-center align-items-center justify-content-center p-4">
@@ -45,14 +47,7 @@
             </section>
 
             <!-- Efecto Parallax -->
-            <script>
-                const portada = document.querySelector('#portada');
-                const offsetInicial = -750;
-                window.addEventListener('scroll', () => {
-                    let offset = window.scrollY;
-                    portada.style.backgroundPositionY = offsetInicial - offset * 0.2 + "px";
-                });
-            </script>
+
 
             <!-- Seccion principal -->
             <div id="Inicio" class="container py-5">
@@ -88,11 +83,14 @@
                     </div>
                 </article>
 
+
+
+
                 <!-- Caracteristicas -->
                 <div class="row mt-5 g-600"> <!-- g-n espacio entre columnas -->
                     
                     <!-- Actividades -->
-                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
+                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light feature-card">
                         <h3>Actividades</h3>
                         <p>
                             Explora una variedad de retos diseñados para entrenar tus habilidades. 
@@ -102,7 +100,7 @@
                     </div>
 
                     <!-- Competición -->
-                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
+                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light feature-card">
                         <h3>Competición</h3>
                         <p>
                             Participa en eventos en tiempo real y compite contra otros usuarios para ver quién completa 
@@ -112,7 +110,7 @@
                     </div>
 
                     <!-- Rankings -->
-                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
+                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light feature-card">
                         <h3>Rankings y puntuaciones</h3>
                         <p>
                             Tu progreso se refleja en el ranking global. Cada bandera que capturas suma puntos y te 
@@ -122,7 +120,7 @@
                     </div>
 
                     <!-- Noticias -->
-                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light">
+                    <div class="col-12 col-md-6 col-lg-3 shadow rounded p-3 bg-light feature-card">
                         <h3>Noticias</h3>
                         <p>
                             Mantente al día con las últimas novedades, actualizaciones de retos y anuncios de próximos 
@@ -142,6 +140,8 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="javascript/index.js"></script>
+
 
     </body>
 </html>

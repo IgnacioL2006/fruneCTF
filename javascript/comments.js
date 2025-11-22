@@ -89,7 +89,7 @@ function editComment(commentId, oldContent) {
     const newContent = prompt("Editar comentario:", oldContent);
     if (!newContent) return;
 
-    fetch("../edit_comment.php", {
+    fetch("edit_comment.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: commentId, content: newContent })
@@ -103,7 +103,7 @@ function deleteComment(commentId) {
 
     if (!confirm("¿Estás seguro de eliminar el comentario?")) return;
 
-    fetch("../delete_comment.php", {
+    fetch("delete_comment.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: commentId })

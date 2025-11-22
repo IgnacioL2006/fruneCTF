@@ -33,6 +33,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/news.css">
         <!-- JS -->
+         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="javascript/page_structure.js"></script>
     </head>
 

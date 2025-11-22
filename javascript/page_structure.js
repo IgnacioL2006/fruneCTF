@@ -1,18 +1,7 @@
-function loadHeader() {
-    fetch("header.php")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("header").innerHTML = data;
-        });
-}
-
-function loadFooter() {
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer").innerHTML = data;
-        });
-}
+$(document).ready(function() {
+    $("#header").load("../header.php");
+    $("#footer").load("../footer.html");
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     loadHeader();
