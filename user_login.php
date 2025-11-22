@@ -23,7 +23,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/userlogin.css">
         <!-- JS -->
-        <script src="javascript/eventManager.js"></script>
+        <script src="javascript/page_structure.js"></script>
     </head>
 
     <body>
@@ -134,7 +134,7 @@
     <div id="footer"></div>
 
     <!-- Ejecutar javaScript para el formulario -->
-    <script src="javascript/eventManager.js"></script>
+    <script src="javascript/form.js"></script>
 
     </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 21, 2025 at 11:00 PM
+-- Generation Time: Oct 20, 2025 at 03:15 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -11,16 +11,19 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
- /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
- /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
- /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- /*!40101 SET NAMES utf8mb4 */;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `frune_ctf_database`
 --
 
 -- --------------------------------------------------------
+
+--
 -- Table structure for table `activities`
 --
 
@@ -32,26 +35,17 @@ CREATE TABLE `activities` (
   `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `activities`
+--
+
 INSERT INTO `activities` (`id`, `difficulty`, `times_completed`, `description`, `name`) VALUES
 (1, '1', 0, 'Encuentra información oculta en un simple e inocente blog canino | 2 Mins', 'Top de nombres para perros'),
 (2, '2', 0, 'Demuestra tus habilidades de OSINT en este desafío introductorio! | 3 Mins.', 'Detective de imágenes');
 
 -- --------------------------------------------------------
--- Table structure for table `comments`
+
 --
-
-CREATE TABLE `comments` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `content` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `target_user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
--- --------------------------------------------------------
 -- Table structure for table `countries`
 --
 
@@ -60,6 +54,10 @@ CREATE TABLE `countries` (
   `name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `iso_code` char(2) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `countries`
+--
 
 INSERT INTO `countries` (`id`, `name`, `iso_code`) VALUES
 (1, 'Argentina', 'AR'),
@@ -86,6 +84,8 @@ INSERT INTO `countries` (`id`, `name`, `iso_code`) VALUES
 (22, 'Estados Unidos', 'US');
 
 -- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 
@@ -93,14 +93,20 @@ CREATE TABLE `news` (
   `ID` int NOT NULL,
   `title` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
   `body` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` int NOT NULL
+  `author` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `news` (`ID`, `title`, `body`, `date`, `user_id`) VALUES
-(21, 'Actualización FruneCTF; Entrega 3', 'Hola a todos,\r\n\r\nEn esta última actualización de fruneCTF hemos añadido varias mejoras importantes:\r\n\r\n- Foros de usuarios utilizando el framework jQuery, lo que permite una interacción más dinámica.\r\n- Modificación de la página principal y otras secciones usando Bootstrap, para un diseño más moderno (no me gustó).\r\n- Noticias: ahora únicamente los administradores pueden publicar noticias, garantizando contenido controlado.\r\n\r\nRecordatorio de funcionalidades anteriores que estaban contempladas para esta entrega:\r\n-Sistema de login y registro, con uso de sesiones, asegurando que solo los usuarios registrados puedan interactuar con ciertas secciones.\r\n\r\nY, por supuesto, un enorme agradecimiento a la única persona que realmente ha estado activa en nuestra página; el ayudante. Gracias por tu incansable esfuerzo de… revisar la página un par de veces.\r\n\r\nSe despide,\r\nPernax', '2025-11-17 17:59:58', 8);
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`ID`, `title`, `body`, `author`, `date`) VALUES
+(10, 'Actualización de fruneCTF: Entrega 2', 'Bienvenidos a la segunda entrega de fruneCTF, las nuevas implementaciones son:\r\n\r\n- Implementación de registro/inicio de sesión\r\n- Implementación de noticias\r\n- Implementación de apartado social; podrás ver todas las personas registradas en la página, se espera implementar un sistema de foro para la entrega 3\r\n- 2 nuevas actividades\r\n\r\nPensabamos en agregar más actividades, pero no nos dio tiempo. Aún así, esperamos que disfruten las actividades nuevas hechas a última hora.', 'Pernax', '2025-10-20 15:09:19');
 
 -- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -115,18 +121,22 @@ CREATE TABLE `users` (
   `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'Sin descripción',
   `flags_won` int DEFAULT '0',
   `competitions_won` int DEFAULT '0',
-  `photo_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'images/user-images/user_image_default.png',
-  `admin` int NOT NULL DEFAULT '0'
+  `photo_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT 'images/user-images/user_image_default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `users` (`id`, `webname`, `name`, `mail`, `password`, `register_time`, `country_id`, `description`, `flags_won`, `competitions_won`, `photo_url`, `admin`) VALUES
-(8, 'Pernax', 'Ignacio Loncón', 'ignacioloncon2006@gmail.com', '$2y$10$FhflBntUx3j2zXY9rQsb.OHjrrSxDVaOmn7DjMMy6WeAiCtfqxpn6', '2025-10-12 20:08:49', 4, 'Co-creador de FruneCTF, página de Capture the Flag desarrollada para evitar el examen de Desarrollo Web. Esperamos que disfruten la página y se diviertan tanto con las actividades disponibles como con las que están por venir :].', 69, 0, 'images/user-images/user_image_8.png', 1),
-(10, 'Bowie', 'Conejillo de indias', 'iloncon2025@alu.uct.cl', '$2y$10$mBTAf5l7wtJ.Q5MQNqdRMe7jNcGQc5ivngHsKeW2Cht4KGOo/kfBO', '2025-10-12 20:23:40', 4, 'Soy el sujeto de pruebas de FruneCTF: me torturan las 24 horas todos los días...', 0, 0, 'images/user-images/user_image_10.png', 0),
-(13, 'Yoelpixula', 'Nicolás Cayuman', 'ncayuman2025@alu.uct.cl', '$2y$10$f/..V.maNcRDTuza.5262.L6uFxuGoz2.U6rQQQMoRKu8Bp.jsLiq', '2025-10-13 14:01:26', 4, 'Cualquier wea, yo el pixula :D', 0, 0, 'images/user-images/user_image_default.png', 0),
-(14, 'ls_trillat', 'Lukas Trillat', 'ltrillat2025@alu.uct.cl', '$2y$10$fL2PpjZ5jvZnFOfaG5vDseKRKmUw8Dt.3JCGREBYRbQpoLEZ.Pve6', '2025-10-14 18:20:41', 4, 'Sin descripción', 0, 0, 'images/user-images/user_image_default.png', 0),
-(15, 'trops', 'Sofía Rodríguez', 'sofiarodrigueznog@gmail.com', '$2y$10$8Xn0XE0LV7ErFFSWz7oiF.vnWKfT0WSpxzDOnMZdcybzyoSKWB5Xu', '2025-10-20 16:10:24', 5, 'te voy a mandar a matar', 0, 0, 'images/user-images/user_image_15.png', 0);
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `webname`, `name`, `mail`, `password`, `register_time`, `country_id`, `description`, `flags_won`, `competitions_won`, `photo_url`) VALUES
+(8, 'Pernax', 'Ignacio Loncón', 'ignacioloncon2006@gmail.com', '$2y$10$FhflBntUx3j2zXY9rQsb.OHjrrSxDVaOmn7DjMMy6WeAiCtfqxpn6', '2025-10-12 20:08:49', 4, 'Co-creador de FruneCTF, página de Capture the Flag desarrollada para evitar el examen de Desarrollo Web. Esperamos que disfruten la página y se diviertan tanto con las actividades disponibles como con las que están por venir :]', 69, 0, 'images/user-images/user_image_8.png'),
+(10, 'Bowie', 'Conejillo de indias', 'iloncon2025@alu.uct.cl', '$2y$10$mBTAf5l7wtJ.Q5MQNqdRMe7jNcGQc5ivngHsKeW2Cht4KGOo/kfBO', '2025-10-12 20:23:40', 4, 'Soy el sujeto de pruebas de FruneCTF: me torturan las 24 horas todos los días para que esta página prospere. Espero que mi sufrimiento constante sea al menos esencial para que este asombroso sitio vea la luz.', 0, 0, 'images/user-images/user_image_10.png'),
+(13, 'Yoelpixula', 'Nicolás Cayuman', 'ncayuman2025@alu.uct.cl', '$2y$10$f/..V.maNcRDTuza.5262.L6uFxuGoz2.U6rQQQMoRKu8Bp.jsLiq', '2025-10-13 14:01:26', 4, 'Cualquier wea, yo el pixula :D', 0, 0, 'images/user-images/user_image_default.png'),
+(14, 'ls_trillat', 'Lukas Trillat', 'ltrillat2025@alu.uct.cl', '$2y$10$fL2PpjZ5jvZnFOfaG5vDseKRKmUw8Dt.3JCGREBYRbQpoLEZ.Pve6', '2025-10-14 18:20:41', 4, 'Sin descripción', 0, 0, 'images/user-images/user_image_default.png');
 
 -- --------------------------------------------------------
+
+--
 -- Table structure for table `user_activities`
 --
 
@@ -135,64 +145,89 @@ CREATE TABLE `user_activities` (
   `activity_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Indexes
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `activities`
+--
 ALTER TABLE `activities`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
+--
+-- Indexes for table `countries`
+--
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `news`
+--
 ALTER TABLE `news`
   ADD PRIMARY KEY (`ID`);
 
+--
+-- Indexes for table `users`
+--
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `fk_users_country` (`country_id`);
 
+--
+-- Indexes for table `user_activities`
+--
 ALTER TABLE `user_activities`
   ADD PRIMARY KEY (`user_id`,`activity_id`),
   ADD KEY `activity_id` (`activity_id`);
 
--- AUTO_INCREMENT
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `activities`
+--
 ALTER TABLE `activities`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
-ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-
+--
+-- AUTO_INCREMENT for table `countries`
+--
 ALTER TABLE `countries`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
+--
+-- AUTO_INCREMENT for table `news`
+--
 ALTER TABLE `news`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
+--
+-- AUTO_INCREMENT for table `users`
+--
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
--- Constraints
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1`
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-  ON DELETE CASCADE ON UPDATE CASCADE;
+--
+-- Constraints for dumped tables
+--
 
+--
+-- Constraints for table `users`
+--
 ALTER TABLE `users`
-  ADD CONSTRAINT `fk_users_country`
-  FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`)
-  ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_users_country` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
+--
+-- Constraints for table `user_activities`
+--
 ALTER TABLE `user_activities`
-  ADD CONSTRAINT `user_activities_ibfk_1`
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `user_activities_ibfk_2`
-  FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`);
-
+  ADD CONSTRAINT `user_activities_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_activities_ibfk_2` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`);
 COMMIT;
 
- /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
- /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

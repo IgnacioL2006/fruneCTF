@@ -33,7 +33,7 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/news.css">
         <!-- JS -->
-        <script src="javascript/eventManager.js"></script>
+        <script src="javascript/page_structure.js"></script>
     </head>
 
     <body>
@@ -74,7 +74,7 @@
 
 
         <!-- Lgoic Script -->
-        <script src="javascript/eventManager.js"></script>
+        <script src="javascript/news.js"></script>
     </body>
 
     <!-- Footer -->

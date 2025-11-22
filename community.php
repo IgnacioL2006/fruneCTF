@@ -35,7 +35,7 @@ if ($result && $result->num_rows > 0) {
             <meta name="author" content="FruneCTF Team">
             <title>COMUNIDAD</title>
             <link rel="stylesheet" href="css/community.css">
-            <script src="javascript/eventManager.js"></script>
+            <script src="javascript/page_structure.js"></script>
     </head>
     
     <body>

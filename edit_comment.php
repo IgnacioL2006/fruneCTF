@@ -2,22 +2,29 @@
     session_start();
     include("conex.php");
 
-    $comment_id  = $_POST['id'] ?? null;
-    $new_content = trim($_POST['content'] ?? ""); // delete extra spaces
+    header('Content-Type: application/json');
 
+    // Read incoming JSON 
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $comment_id  = intval($data['id'] ?? 0);
+    $new_content = trim($data['content'] ?? "");
+
+    // Basic validation
     if (!$comment_id || $new_content === "") {
-        die("Datos inválidos");
+        echo json_encode(["status" => "error", "message" => "Invalid data"]);
+        exit;
     }
 
-    // Update comment
-    $update = $conn->prepare("UPDATE comments SET content = ?, updated_at = NOW() WHERE id = ?");
-    $update->bind_param("si", $new_content, $comment_id);
+    // Prepare and execute update query
+    $stmt = $conn->prepare("UPDATE comments SET content = ?, updated_at = NOW() WHERE id = ?");
+    $stmt->bind_param("si", $new_content, $comment_id);
 
-    if ($update->execute()) {
-        echo "ok";
+    // Send JSON response
+    if ($stmt->execute()) {
+        echo json_encode(["status" => "ok"]);
     } else {
-        echo "error: " . $update->error;
+        echo json_encode(["status" => "error", "message" => $stmt->error]);
     }
 
-    $update->close();
-?>
+    $stmt->close();
