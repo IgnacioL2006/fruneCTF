@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";      // Servidor local de Laragon
-$user = "root";           // Usuario por defecto de Laragon
-$pass = "";               // Contraseña vacía (por defecto)
-$db   = "frune_ctf_database"; // Nombre de tu base de datos local
+$host = "mysql.inf.uct.cl";      // Servidor local de Laragon
+$user = "iloncon";           // Usuario por defecto de Laragon
+$pass = "yOOSDpUYdomxbs6bB";               // Contraseña vacía (por defecto)
+$db   = "A2025_iloncon"; // Nombre de tu base de datos local
 
 $conn = new mysqli($host, $user, $pass, $db);
 
